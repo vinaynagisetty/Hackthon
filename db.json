@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "email": "raziasulthana.syed@nstarxinc.com",
+      "password": "1234",
+      "id": 1
+    },
+    {
+      "email": "raziasulthana.syed@nstarxinc.com",
+      "password": "1234",
+      "id": 2
+    },
+    {
+      "email": "raziasulthana.syed@nstarxinc.com",
+      "password": "1234",
+      "id": 3
+    },
+    {
+      "email": "raziasulthana.syed@nstarxinc.com",
+      "password": "1234",
+      "id": 4
+    },
+    {
+      "email": "raziasulthana.syed@nstarxinc.com",
+      "password": "1234",
+      "id": 5
+    },
+    {
+      "email": "raziasulthana.syed@nstarxinc.com",
+      "password": "1234",
+      "id": 6
+    },
+    {
+      "email": "raziasulthana.syed@nstarxinc.com",
+      "password": "1234",
+      "id": 7
+    },
+    {
+      "email": "vinay",
+      "password": "4229",
+      "id": 8
+    }
+  ]
+}
