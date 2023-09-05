@@ -4,24 +4,38 @@
   <input type="password" name="password" ngModel placeholder="Password">
   <button type="submit">Sign Up</button>
 </form> -->
-
 <div class="container">
-    <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
-      <div class="text-center mb-5">
-        <h2>Sign Up</h2>
-      </div>
-      
-      <form [formGroup]="form" (ngSubmit)="signUp()">
-        <div>
-          <label for="email" class="block text-900 font-medium mb-2">Email</label>
-          <input id="email" type="text" formControlName="email" placeholder="Email address" pInputText class="w-full mb-3">
-  
-          <label for="password" class="block text-900 font-medium mb-2">Password</label>
-          <input id="password" type="password" formControlName="password" placeholder="Password" pInputText class="w-full mb-3">
-  
-          <button pButton pRipple label="Sign Up" class="w-full"></button>
-        </div>
-      </form>
+  <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
+    <div class="text-center mb-5">
+      <h2>Sign Up</h2>
     </div>
+    
+    <form [formGroup]="form" (ngSubmit)="signUp(form.value)">
+      <div>
+        <label for="name" class="block text-900 font-medium mb-2">Name</label>
+        <input id="name" type="text" formControlName="name" placeholder="Full Name" pInputText class="w-full mb-3">
+        
+        <label for="email" class="block text-900 font-medium mb-2">Email</label>
+        <input id="email" type="text" formControlName="email" placeholder="Email address" pInputText class="w-full mb-3">
+
+        <label for="mobile" class="block text-900 font-medium mb-2">Mobile Number</label>
+        <input id="mobile" type="text" formControlName="mobile" placeholder="Mobile number" pInputText class="w-full mb-3">
+        
+        <!-- Dropdown for Account Type -->
+        <label for="accountType" class="block text-900 font-medium mb-2">Company Name</label>
+        <select id="accountType" formControlName="Company" placeholder="Select from below" pInputText class="w-full mb-3">
+          <option value="Nstarx">Nstarx</option>
+          <option value="Others">Others</option>
+        </select>
+
+        <label for="password" class="block text-900 font-medium mb-2">Password</label>
+        <input id="password" type="password" formControlName="password" placeholder="Password" pInputText class="w-full mb-3">
+
+        <label for="confirmPassword" class="block text-900 font-medium mb-2">Confirm Password</label>
+        <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Confirm Password" pInputText class="w-full mb-3">
+
+        <button pButton pRipple label="Sign Up" class="w-full"></button>
+      </div>
+    </form>
   </div>
-  
+</div>

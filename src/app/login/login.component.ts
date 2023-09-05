@@ -20,15 +20,14 @@ export class LoginComponent {
     });
   }
 
-  login(): void {
-    if (this.form.valid) {
-      const credentials = this.form.value;
+  login(credentials:any): void {
+    
       this.authService.login(credentials).subscribe(response => {
         console.log('Logged in:', response);
         // Redirect or show messages as needed
         this.router.navigate(['/home']);
   
       });
-    }
+    
   }
 }
