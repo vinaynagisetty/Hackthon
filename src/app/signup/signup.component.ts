@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 @Component({
@@ -8,17 +8,20 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  form!: FormGroup;
-
+  public form!: UntypedFormGroup;
+  private emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   constructor(private fb: FormBuilder,
     private router: Router,
     private As:AuthService
     ) {}
 
   ngOnInit(): void {
+  this.buildForm();
+  }
+  buildForm() {
     this.form = this.fb.group({
       name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
       mobile: ['', [Validators.required]],
       Company: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -37,9 +40,14 @@ export class SignupComponent implements OnInit {
   // }
 
   signUp(user: any): void {
-    this.As.signUp(user).subscribe(response => {
-      console.log('User registered:', response);
-      this.router.navigate(['/login']);
-    });
+    console.log(this.form);
+    if(this.form.valid){
+      this.As.signUp(user).subscribe(response => {
+        console.log('User registered:', response);
+        this.router.navigate(['/login']);
+      });
+    }
+    
+    
   }
 }

@@ -54,6 +54,42 @@
       "email": "",
       "password": "",
       "id": 11
+    },
+    {
+      "name": "",
+      "email": "cap@gmail.com",
+      "mobile": "",
+      "Company": "",
+      "password": "Vinay4229@",
+      "confirmPassword": "",
+      "id": 12
+    },
+    {
+      "name": "eded",
+      "email": "vinay.nagisetty@nstarxinc.com",
+      "mobile": "eded",
+      "Company": "Nstarx",
+      "password": "Rohith@123",
+      "confirmPassword": "ededed",
+      "id": 13
+    },
+    {
+      "name": "rgrg",
+      "email": "vinay.nagisetty@nstarxinc.com",
+      "mobile": "rgrg",
+      "Company": "Nstarx",
+      "password": "Rohith@123",
+      "confirmPassword": "rgrgrg",
+      "id": 14
+    },
+    {
+      "name": "rfrf",
+      "email": "vinay.nagisetefnstarxinc.com",
+      "mobile": "rfrf",
+      "Company": "",
+      "password": "Rohith@123",
+      "confirmPassword": "frfr",
+      "id": 15
     }
   ]
 }

@@ -14,10 +14,23 @@
       <div>
         <label for="name" class="block text-900 font-medium mb-2">Name</label>
         <input id="name" type="text" formControlName="name" placeholder="Full Name" pInputText class="w-full mb-3">
-        
+        <div>
         <label for="email" class="block text-900 font-medium mb-2">Email</label>
-        <input id="email" type="text" formControlName="email" placeholder="Email address" pInputText class="w-full mb-3">
-
+        <input id="email" type="text" formControlName="email" placeholder="Email address"  [class.is-invalid]="
+        (form.controls['email'].touched &&
+          form.controls['email'].invalid)
+      " pInputText class="w-full mb-3">
+      <div
+                  class="formLabel col-md-2"
+                  *ngIf="
+                    form.controls['email'].touched &&
+                    form.controls['email'].invalid
+                  "
+                >
+                
+                </div>
+      
+      </div>
         <label for="mobile" class="block text-900 font-medium mb-2">Mobile Number</label>
         <input id="mobile" type="text" formControlName="mobile" placeholder="Mobile number" pInputText class="w-full mb-3">
         

@@ -12,6 +12,7 @@ import { StyleClassModule } from 'primeng/styleclass';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { EditComponent } from './Edit/edit/edit.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EditComponent } from './Edit/edit/edit.component';
     SignupComponent,
     LoginComponent,
     HomeComponent,
-    EditComponent
+    EditComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
