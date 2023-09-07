@@ -124,6 +124,15 @@
       "password": "ctgadmin2018",
       "confirmPassword": "tgtgtgtg",
       "id": 19
+    },
+    {
+      "name": "vinay nagisetty",
+      "email": "vinay.nagisetty@nstarxinc.com",
+      "Company": "Nstarx",
+      "othercompanyName": "",
+      "password": "Vinay@4229",
+      "confirmPassword": "efefefef",
+      "id": 20
     }
   ]
 }

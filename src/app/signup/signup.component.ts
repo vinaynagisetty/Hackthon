@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, UntypedFormGroup, Validators } from '@angular/f
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { MessageService } from 'primeng/api';
+import {confirmPasswordValidator} from '.././comparepassword'
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -32,7 +33,8 @@ export class SignupComponent implements OnInit {
       othercompanyName:[''],
       password: ['', [Validators.required, Validators.pattern(this.password)]],
       confirmPassword: ['', [Validators.required]]
-    });
+    },
+    { validators: confirmPasswordValidator });
   }
 
   // signUp(): void {

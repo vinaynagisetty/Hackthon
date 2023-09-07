@@ -103,7 +103,7 @@
         <small
         class="error"
           *ngIf="form.controls['password'].errors?.['pattern']"
-          >Please enter a minimum 8 letter password, with at least a symbol, upper and lower case letters and a number.</small
+          >Please enter atleast minimum 8 letter password, with at least a symbol, upper and lower case letters and a number.</small
         >
         </div>
         <label for="confirmPassword" class="block text-900 font-medium mb-2">Confirm Password</label>
@@ -123,6 +123,10 @@
         >
           required
         </small>
+    
+        </div>
+        <div class="error" *ngIf="form.errors?.['PasswordNoMatch']">
+          Password does'nt match.
         </div>
         <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>
 
