@@ -13,39 +13,118 @@
     <form [formGroup]="form" (ngSubmit)="signUp(form.value)">
       <div>
         <label for="name" class="block text-900 font-medium mb-2">Name</label>
-        <input id="name" type="text" formControlName="name" placeholder="Full Name" pInputText class="w-full mb-3">
-        <div>
+        <input id="name" type="text" formControlName="name" placeholder="Full Name" [class.is-invalid]="
+        (form.controls['name'].touched &&
+          form.controls['name'].invalid)" pInputText class="w-full mb-3">
+          <div
+      
+          *ngIf="
+            form.controls['name'].touched &&
+            form.controls['name'].invalid
+          "
+        >
+          <small class="error"
+            
+            *ngIf="form.controls['name'].errors?.['required']"
+          >
+            required
+          </small>
+          </div>
+        
+          <label for="accountType" class="block text-900 font-medium mb-2">Company </label>
+          <select id="accountType" formControlName="Company" (change)="selectCompany($event)"  [class.is-invalid]="
+          (form.controls['Company'].touched &&
+            form.controls['Company'].invalid)"  placeholder="Select from below" pInputText class="w-full mb-3">
+            <option value="Nstarx">Nstarx</option>
+            <option value="Others">Others</option>
+          </select>
+          <div
+      
+          *ngIf="
+            form.controls['Company'].touched &&
+            form.controls['Company'].invalid
+          "
+        >
+          <small class="error"
+            
+            *ngIf="form.controls['Company'].errors?.['required']"
+          >
+            required
+          </small>
+          </div>
+          <input *ngIf="form.get('Company')?.value === 'Others'" id="otherCompanyName" type="text" formControlName="othercompanyName" placeholder="Company Name" pInputText class="w-full mb-3">
         <label for="email" class="block text-900 font-medium mb-2">Email</label>
-        <input id="email" type="text" formControlName="email" placeholder="Email address"  [class.is-invalid]="
+        <input id="email" type="text"   [(ngModel)]="defaultEmailDomain" formControlName="email" placeholder="Email address"  [class.is-invalid]="
         (form.controls['email'].touched &&
           form.controls['email'].invalid)
       " pInputText class="w-full mb-3">
       <div
-                  class="formLabel col-md-2"
-                  *ngIf="
-                    form.controls['email'].touched &&
-                    form.controls['email'].invalid
-                  "
-                >
-                
-                </div>
       
-      </div>
-        <label for="mobile" class="block text-900 font-medium mb-2">Mobile Number</label>
-        <input id="mobile" type="text" formControlName="mobile" placeholder="Mobile number" pInputText class="w-full mb-3">
+      *ngIf="
+        form.controls['email'].touched &&
+        form.controls['email'].invalid
+      "
+    >
+      <small class="error"
         
-        <!-- Dropdown for Account Type -->
-        <label for="accountType" class="block text-900 font-medium mb-2">Company Name</label>
-        <select id="accountType" formControlName="Company" placeholder="Select from below" pInputText class="w-full mb-3">
-          <option value="Nstarx">Nstarx</option>
-          <option value="Others">Others</option>
-        </select>
+        *ngIf="form.controls['email'].errors?.['required']"
+      >
+        required
+      </small>
+      <small
+      class="error"
+        *ngIf="form.controls['email'].errors?.['pattern']"
+        >Please enter a valid email.</small
+      >
+    </div>
+      
+      
+       
+       
 
         <label for="password" class="block text-900 font-medium mb-2">Password</label>
-        <input id="password" type="password" formControlName="password" placeholder="Password" pInputText class="w-full mb-3">
-
+        <input id="password" type="password" formControlName="password"  [class.is-invalid]="
+        (form.controls['password'].touched &&
+          form.controls['password'].invalid)  "
+        placeholder="Password" pInputText class="w-full mb-3">
+        <div
+      
+        *ngIf="
+          form.controls['password'].touched &&
+          form.controls['password'].invalid
+        "
+      >
+        <small class="error"
+          
+          *ngIf="form.controls['password'].errors?.['required']"
+        >
+          required
+        </small>
+        <small
+        class="error"
+          *ngIf="form.controls['password'].errors?.['pattern']"
+          >Please enter a minimum 8 letter password, with at least a symbol, upper and lower case letters and a number.</small
+        >
+        </div>
         <label for="confirmPassword" class="block text-900 font-medium mb-2">Confirm Password</label>
-        <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Confirm Password" pInputText class="w-full mb-3">
+        <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Confirm Password" [class.is-invalid]="
+        (form.controls['confirmPassword'].touched &&
+          form.controls['confirmPassword'].invalid)  " pInputText class="w-full mb-3">
+          <div
+      
+        *ngIf="
+          form.controls['confirmPassword'].touched &&
+          form.controls['confirmPassword'].invalid
+        "
+      >
+        <small class="error"
+          
+          *ngIf="form.controls['confirmPassword'].errors?.['required']"
+        >
+          required
+        </small>
+        </div>
+        <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>
 
         <button pButton pRipple label="Sign Up" class="w-full"></button>
       </div>

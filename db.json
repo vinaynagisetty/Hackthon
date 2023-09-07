@@ -90,6 +90,40 @@
       "password": "Rohith@123",
       "confirmPassword": "frfr",
       "id": 15
+    },
+    {
+      "name": "ramu",
+      "email": "ramu@gmail.com",
+      "mobile": "3e3",
+      "Company": "Nstarx",
+      "password": "1224455",
+      "confirmPassword": "23545566",
+      "id": 16
+    },
+    {
+      "name": "rab",
+      "email": "thth@gmail.com",
+      "Company": "Nstarx",
+      "password": "43245535",
+      "confirmPassword": "34534535",
+      "id": 17
+    },
+    {
+      "name": "thth",
+      "email": "thth@gmail.com",
+      "Company": "Nstarx",
+      "password": "tgtgtttt",
+      "confirmPassword": "ttttt",
+      "id": 18
+    },
+    {
+      "name": "tgtg",
+      "email": "ctg@credentialmydoc.com",
+      "Company": "Others",
+      "othercompanyName": "gtgt",
+      "password": "ctgadmin2018",
+      "confirmPassword": "tgtgtgtg",
+      "id": 19
     }
   ]
 }

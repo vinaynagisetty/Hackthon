@@ -13,7 +13,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { EditComponent } from './Edit/edit/edit.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastModule } from 'primeng/toast';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     StyleClassModule,
     CheckboxModule,
     InputTextModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

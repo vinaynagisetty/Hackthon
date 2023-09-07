@@ -4,11 +4,15 @@
   align-items: center;
   height: 100%;
   /* Set the container to full viewport height */
-
+  background-size: cover;
+  background-repeat: no-repeat;
   background-image: url('../../assets/gradienbg.jpg');
 }
 
 .surface-card {
   max-width: 600px;
   /* Adjust the width as needed */
+}
+.error{
+  color: hsl(0, 95%, 45%);
 }
