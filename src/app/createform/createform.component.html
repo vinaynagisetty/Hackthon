@@ -1,0 +1,40 @@
+<div class="bg-img">
+    <div class="content">
+        <header>Add Project</header>
+        <form [formGroup]="form" (ngSubmit)="create()">
+            
+            
+            <!-- New fields with the same styling -->
+            <div class="field space">
+                <span class="fa fa-file"></span>
+                <input type="text" formControlName="projectname" required placeholder="project name">
+            </div>
+            <div class="field space">
+                <span class="fa fa-link"></span>
+                <input type="text" formControlName="url" required placeholder="URL">
+            </div>
+            <div class="field space">
+                <span class="fa fa-users"></span>
+                <input type="number" formControlName="numUsers" required placeholder="Number of Users">
+            </div>
+            <div class="field space">
+                <span class="fa fa-clock"></span>
+                <input type="number" formControlName="testDuration" required placeholder="Test Duration">
+            </div>
+            <div class="field space">
+                <span class="fa fa-clock"></span>
+                <input type="number" formControlName="rampUpTime" required placeholder="Ramp-Up Time">
+            </div>
+            <div class="field space">
+                <span class="fa fa-cog"></span>
+                <input type="text" formControlName="testType" required placeholder="Test Type">
+            </div>
+            <!-- End of new fields -->
+            <div class="   space">
+                <button class="add-button" type="submit" >Add Project</button>
+            </div>
+            
+        </form>
+        
+    </div>
+</div>

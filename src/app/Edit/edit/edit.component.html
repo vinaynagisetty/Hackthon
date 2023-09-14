@@ -1,35 +1,40 @@
-<div class="container">
-    <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
-      <div class="text-center mb-5">
-        <h2>Edit Profile</h2>
-      </div>
-      
-      <form [formGroup]="form" (ngSubmit)="updateProfile()">
-        <div>
-            <label for="name" class="block text-900 font-medium mb-2">Name</label>
-            <input id="name" type="text" formControlName="name" placeholder="Full Name" pInputText class="w-full mb-3">
-            
-            <label for="email" class="block text-900 font-medium mb-2">Email</label>
-            <input id="email" type="text" formControlName="email" placeholder="Email address" pInputText class="w-full mb-3">
-    
-            <label for="mobile" class="block text-900 font-medium mb-2">Mobile Number</label>
-            <input id="mobile" type="text" formControlName="mobile" placeholder="Mobile number" pInputText class="w-full mb-3">
-            
-            <!-- Dropdown for Account Type -->
-            <label for="accountType" class="block text-900 font-medium mb-2">Company Name</label>
-            <select id="accountType" formControlName="Company" placeholder="Select from below" pInputText class="w-full mb-3">
-              <option value="Nstarx">Nstarx</option>
-              <option value="Others">Others</option>
-            </select>
-    
-            <label for="password" class="block text-900 font-medium mb-2">Password</label>
-            <input id="password" type="password" formControlName="password" placeholder="Password" pInputText class="w-full mb-3">
-    
-            <label for="confirmPassword" class="block text-900 font-medium mb-2">Confirm Password</label>
-            <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Confirm Password" pInputText class="w-full mb-3">
-            <button pButton pRipple label="Update Profile" class="w-full"></button>
+<div class="bg-img">
+  <div class="content">
+    <header class="header">Edit Profile</header>
+    <form [formGroup]="form" (ngSubmit)="updateProfile()">
+      <div class="form-fields">
+        <div class="field space">
+          <span class="fa fa-user"></span>
+          <input id="name" type="text" formControlName="name" placeholder="Full Name" required>
         </div>
-      </form>
-    </div>
+        <div class="field space">
+          <span class="fa fa-envelope"></span>
+          <input id="email" type="text" formControlName="email" placeholder="Email address" required>
+        </div>
+        <div class="field space">
+          <span class="fa-solid fa-building"></span> 
+
+          <input id="mobile" type="text" formControlName="mobile" placeholder="Mobile number" required>
+        </div>
+        <div class="field space">
+          <span class="fa fa-house"></span>
+          <select id="accountType" formControlName="Company" placeholder="Select from below" required>
+            <option value="Nstarx">Nstarx</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
+        <div class="field space">
+          <span class="fa fa-lock"></span>
+          <input id="password" type="password" formControlName="password" placeholder="Password" required>
+        </div>
+        <div class="field space">
+          <span class="fa fa-lock"></span>
+          <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Confirm Password" required>
+        </div>
+        <div class="space">
+          <button class="add-button" type="submit">Update Profile</button>
+        </div>
+      </div>
+    </form>
   </div>
-  
+</div>

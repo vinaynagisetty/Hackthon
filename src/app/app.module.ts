@@ -15,6 +15,9 @@ import { EditComponent } from './Edit/edit/edit.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
+import { ProjectsComponent } from './projects/projects.component';
+import { ResultsComponent } from './results/results.component';
+import { CreateformComponent } from './createform/createform.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,10 @@ import { ToastModule } from 'primeng/toast';
     LoginComponent,
     HomeComponent,
     EditComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ProjectsComponent,
+    ResultsComponent,
+    CreateformComponent
   ],
   imports: [
     BrowserModule,

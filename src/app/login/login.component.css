@@ -5,8 +5,21 @@
     height: 100vh; /* Set the container to full viewport height */
     background-color: #f5f5f5; /* Light gray background color */
   }
+  .logx {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Add padding for spacing */
+  }
+  
+  
   
   .surface-card {
     max-width: 600px; /* Adjust the width as needed */
+  }
+  .peak{
+    
+    margin-top: -1px;
+
   }
   

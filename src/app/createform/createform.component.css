@@ -8,7 +8,7 @@
 }
 
 .bg-img {
-  background: url('../../../assets/gradienbg.jpg');
+  background: url('../../assets/gradienbg.jpg');
   height: 100vh;
   background-size: cover;
   background-position: center;

@@ -2,17 +2,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  /* Set the container to full viewport height */
+  height: 100vh; /* Set the container to full viewport height */
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url('../../assets/gradienbg.jpg');
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
 }
 
 .surface-card {
-  max-width: 600px;
-  /* Adjust the width as needed */
+  max-width: 600px; /* Adjust the width as needed */
+  background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background to the form container */
+  padding: 20px;
+  border-radius: 10px;
 }
-.error{
+
+.error {
   color: hsl(0, 95%, 45%);
+}
+
+/* Additional styles for centering the form elements if needed */
+.text-center {
+  text-align: center;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem; /* Adjust as needed */
 }
