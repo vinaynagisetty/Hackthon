@@ -8,6 +8,10 @@ import { Observable } from 'rxjs';
 export class AuthService {
   private baseUrl = 'http://192.168.80.33:8080/api';
 
+  
+
+
+
   constructor(private http: HttpClient) {}
 
   signUp(user: any): Observable<any> {
