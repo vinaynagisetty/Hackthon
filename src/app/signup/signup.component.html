@@ -12,47 +12,108 @@
     
     <form [formGroup]="form" (ngSubmit)="signUp(form.value)">
       <div>
-        <label for="name" class="block text-900 font-medium mb-2">Name</label>
-        <input id="name" type="text" formControlName="name" placeholder="Full Name" [class.is-invalid]="
-        (form.controls['name'].touched &&
-          form.controls['name'].invalid)" pInputText class="w-full mb-3">
+        <label for="name" class="block text-900 font-medium mb-2">first_name</label>
+        <input id="name" type="text" formControlName="first_name" placeholder="Full Name" [class.is-invalid]="
+        (form.controls['first_name'].touched &&
+          form.controls['first_name'].invalid)" pInputText class="w-full mb-3">
           <div
       
           *ngIf="
-            form.controls['name'].touched &&
-            form.controls['name'].invalid
+            form.controls['first_name'].touched &&
+            form.controls['first_name'].invalid
           "
         >
           <small class="error"
             
-            *ngIf="form.controls['name'].errors?.['required']"
+            *ngIf="form.controls['first_name'].errors?.['required']"
           >
             required
           </small>
           </div>
+          </div>
+          <div>
+            <label for="name" class="block text-900 font-medium mb-2">date_of_birth</label>
+            <input id="name" type="text" formControlName="date_of_birth" placeholder="Full Name" [class.is-invalid]="
+            (form.controls['date_of_birth'].touched &&
+              form.controls['date_of_birth'].invalid)" pInputText class="w-full mb-3">
+              <div
+          
+              *ngIf="
+                form.controls['date_of_birth'].touched &&
+                form.controls['date_of_birth'].invalid
+              "
+            >
+              <small class="error"
+                
+                *ngIf="form.controls['date_of_birth'].errors?.['required']"
+              >
+                required
+              </small>
+              </div>
+              </div>
+          <div>
+            <label for="name" class="block text-900 font-medium mb-2">mobile_no</label>
+            <input id="name" type="text" formControlName="mobile_no" placeholder="Full Name" [class.is-invalid]="
+            (form.controls['mobile_no'].touched &&
+              form.controls['mobile_no'].invalid)" pInputText class="w-full mb-3">
+              <div
+          
+              *ngIf="
+                form.controls['mobile_no'].touched &&
+                form.controls['mobile_no'].invalid
+              "
+            >
+              <small class="error"
+                
+                *ngIf="form.controls['mobile_no'].errors?.['required']"
+              >
+                required
+              </small>
+              </div>
+              </div>
+          <div>
+            <label for="name" class="block text-900 font-medium mb-2">last_name</label>
+            <input id="name" type="text" formControlName="last_name" placeholder="Full Name" [class.is-invalid]="
+            (form.controls['last_name'].touched &&
+              form.controls['last_name'].invalid)" pInputText class="w-full mb-3">
+              <div
+          
+              *ngIf="
+                form.controls['last_name'].touched &&
+                form.controls['last_name'].invalid
+              "
+            >
+              <small class="error"
+                
+                *ngIf="form.controls['last_name'].errors?.['required']"
+              >
+                required
+              </small>
+              </div>
+              
         
           <label for="accountType" class="block text-900 font-medium mb-2">Company </label>
-          <select id="accountType" formControlName="Company" (change)="selectCompany($event)"  [class.is-invalid]="
-          (form.controls['Company'].touched &&
-            form.controls['Company'].invalid)"  placeholder="Select from below" pInputText class="w-full mb-3">
+          <select id="accountType" formControlName="company_name" (change)="selectCompany($event)"  [class.is-invalid]="
+          (form.controls['company_name'].touched &&
+            form.controls['company_name'].invalid)"  placeholder="Select from below" pInputText class="w-full mb-3">
             <option value="Nstarx">Nstarx</option>
             <option value="Others">Others</option>
           </select>
           <div
       
           *ngIf="
-            form.controls['Company'].touched &&
-            form.controls['Company'].invalid
+            form.controls['company_name'].touched &&
+            form.controls['company_name'].invalid
           "
         >
           <small class="error"
             
-            *ngIf="form.controls['Company'].errors?.['required']"
+            *ngIf="form.controls['company_name'].errors?.['required']"
           >
             required
           </small>
           </div>
-          <input *ngIf="form.get('Company')?.value === 'Others'" id="otherCompanyName" type="text" formControlName="othercompanyName" placeholder="Company Name" pInputText class="w-full mb-3">
+          <!-- <input *ngIf="form.get('Company')?.value === 'Others'" id="otherCompanyName" type="text" formControlName="othercompanyName" placeholder="Company Name" pInputText class="w-full mb-3"> -->
         <label for="email" class="block text-900 font-medium mb-2">Email</label>
         <input id="email" type="text"   [(ngModel)]="defaultEmailDomain" formControlName="email" placeholder="Email address"  [class.is-invalid]="
         (form.controls['email'].touched &&
@@ -107,19 +168,19 @@
         >
         </div>
         <label for="confirmPassword" class="block text-900 font-medium mb-2">Confirm Password</label>
-        <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Confirm Password" [class.is-invalid]="
-        (form.controls['confirmPassword'].touched &&
-          form.controls['confirmPassword'].invalid)  " pInputText class="w-full mb-3">
+        <input id="confirmPassword" type="password" formControlName="confirm_password" placeholder="Confirm Password" [class.is-invalid]="
+        (form.controls['confirm_password'].touched &&
+          form.controls['confirm_password'].invalid)  " pInputText class="w-full mb-3">
           <div
       
         *ngIf="
-          form.controls['confirmPassword'].touched &&
-          form.controls['confirmPassword'].invalid
+          form.controls['confirm_password'].touched &&
+          form.controls['confirm_password'].invalid
         "
       >
         <small class="error"
           
-          *ngIf="form.controls['confirmPassword'].errors?.['required']"
+          *ngIf="form.controls['confirm_password'].errors?.['required']"
         >
           required
         </small>

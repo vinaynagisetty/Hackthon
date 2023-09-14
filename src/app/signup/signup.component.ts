@@ -26,15 +26,18 @@ export class SignupComponent implements OnInit {
   }
   buildForm() {
     this.form = this.fb.group({
-      name: ['', [Validators.required]],
+      first_name: ['', [Validators.required]],
+      last_name: ['', [Validators.required]],
+      mobile_no: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
      
-      Company: [null, [Validators.required]],
-      othercompanyName:[''],
+      company_name: [null, [Validators.required]],
+      
       password: ['', [Validators.required, Validators.pattern(this.password)]],
-      confirmPassword: ['', [Validators.required]]
+      confirm_password: ['', [Validators.required]],
+      date_of_birth:['',Validators.required],
     },
-    { validators: confirmPasswordValidator });
+    );
   }
 
   // signUp(): void {
@@ -55,7 +58,7 @@ export class SignupComponent implements OnInit {
     }
   }
   signUp(user: any): void {
-    console.log(this.form);
+    console.log(user);
     if(this.form.valid){
 
       this.As.signUp(user).subscribe(response => {
