@@ -190,3 +190,15 @@ body {
   color: #0e0000;
   padding: 10px 20px;
 }
+.logx {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px; /* Add padding for spacing */
+}
+.peak{
+    
+  margin-left: -1px;
+  margin-top: -15px;
+
+}

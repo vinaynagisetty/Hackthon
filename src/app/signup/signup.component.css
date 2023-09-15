@@ -1,20 +1,38 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Set the container to full viewport height */
+  min-height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url('../../assets/gradienbg.jpg');
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
+  margin: 0;
+  padding: 0;
 }
 
 .surface-card {
-  max-width: 600px; /* Adjust the width as needed */
-  background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background to the form container */
+  max-width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* Display fields in a single column on smaller screens */
+  gap: 1rem;
 }
 
 .error {
@@ -27,5 +45,12 @@
 }
 
 .mb-5 {
-  margin-bottom: 1.25rem; /* Adjust as needed */
+  margin-bottom: 1.25rem;
+}
+
+/* Add responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .surface-card {
+    padding: 10px;
+  }
 }

@@ -24,21 +24,21 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   this.buildForm();
   }
+  
   buildForm() {
     this.form = this.fb.group({
       first_name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
       mobile_no: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
-     
       company_name: [null, [Validators.required]],
-      
       password: ['', [Validators.required, Validators.pattern(this.password)]],
       confirm_password: ['', [Validators.required]],
-      date_of_birth:['',Validators.required],
-    },
-    );
+      date_of_birth: ['', Validators.required],
+    }, { validators: confirmPasswordValidator });
   }
+
+  
 
   // signUp(): void {
   //   if (this.form.valid) {
@@ -59,6 +59,8 @@ export class SignupComponent implements OnInit {
   }
   signUp(user: any): void {
     console.log(user);
+    console.log(this.form);
+    
     if(this.form.valid){
 
       this.As.signUp(user).subscribe(response => {
