@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = 'http://192.168.80.33:8080/api';
+  private baseUrl = 'http://192.168.0.106:8085/api';
 
   
 
@@ -19,11 +19,7 @@ export class AuthService {
   }
 
   login(credentials: any): Observable<any> {
-    return this.http.get(`${this.baseUrl}/users`, {
-      params: {
-        email: credentials.email,
-        password: credentials.password,
-      },
-    });
+    return this.http.post(`${this.baseUrl}/account/login`, credentials
+);
   }
 }

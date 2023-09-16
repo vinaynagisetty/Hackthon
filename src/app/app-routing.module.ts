@@ -8,12 +8,13 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ProjectsComponent } from './projects/projects.component';
 import { ResultsComponent } from './results/results.component';
 import { CreateformComponent } from './createform/createform.component';
+import { AuthGuard } from './isauthenticate.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent } ,
+  { path: 'home', component: HomeComponent ,canActivate:[AuthGuard]} ,
   { path: 'edit', component: EditComponent } ,
   { path: 'forgot', component: ForgotPasswordComponent } ,
   { path: 'projects', component:ProjectsComponent } ,

@@ -60,6 +60,9 @@ export class SignupComponent implements OnInit {
   signUp(user: any): void {
     console.log(user);
     console.log(this.form);
+    let dataparams={
+      
+    }
     
     if(this.form.valid){
 

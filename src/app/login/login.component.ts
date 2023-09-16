@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { TokenService } from '../token.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, 
     private authService: AuthService,
-    private router: Router) {
+    private router: Router,
+    private token:TokenService) {
     this.form = this.fb.group({
       email: '',
       password: ''
@@ -21,11 +23,17 @@ export class LoginComponent {
   }
 
   login(credentials:any): void {
-    
-      this.authService.login(credentials).subscribe(response => {
-        console.log('Logged in:', response);
+    let dataparams={
+      username:credentials.email,
+      password:credentials.password
+    }
+      this.authService.login(dataparams).subscribe(response => {
+           if(response.status==true){
+            this.token.setToken(response.data.token)
+            this.router.navigate(['/home']);
+           }
         // Redirect or show messages as needed
-        this.router.navigate(['/home']);
+       
   
       });
     
