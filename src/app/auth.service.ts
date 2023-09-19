@@ -8,9 +8,9 @@ import { TokenService } from './token.service';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = 'http://192.168.80.33:8089/api';
+  private baseUrl = 'http://192.168.80.33:8090/api';
 
-  private authToken = localStorage.getItem("login_token"); 
+  private authToken:any =''; 
 
 
 
@@ -21,14 +21,14 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/user/registration`, user);
   }
   createProject(create: any): Observable<any> {
-
+   this.authToken= localStorage.getItem("login_token");
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.authToken}`,
     });
     return this.http.post(`${this.baseUrl}/create/project`, create,{headers});
   }
   projectList(): Observable<any> {
-
+    this.authToken= localStorage.getItem("login_token");
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.authToken}`,
     });

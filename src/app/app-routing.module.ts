@@ -21,7 +21,8 @@ const routes: Routes = [
   { path: 'projects', component:ProjectsComponent } ,
   { path: 'results', component:ResultsComponent } ,
   { path: 'create', component:CreateformComponent } ,
-  { path: 'jmx', component:JmxComponent } ,
+  { path: 'jmx/:projectId', component: JmxComponent }, 
+
 
 ];
 

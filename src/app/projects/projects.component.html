@@ -18,7 +18,8 @@
           <ul *ngFor="let project of Projecrlist">
             <li>
                 <span class="project-name">{{project.Project_name}}</span>
-                <button  routerLink="/jmx" *ngIf="role"  class="jmx-button">JMX</button>
+                <button [routerLink]="'/jmx/' + project.id" *ngIf="role" class="jmx-button">JMX</button>
+
             </li>
             
         </ul>

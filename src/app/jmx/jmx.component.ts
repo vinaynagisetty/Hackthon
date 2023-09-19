@@ -2,7 +2,9 @@ import { ImplicitReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
+
+import { ActivatedRoute, Router } from '@angular/router'; // Import ActivatedRoute
+
 
 
 @Component({
@@ -13,10 +15,13 @@ import { Router } from '@angular/router';
 export class JmxComponent {
   form!: FormGroup;
   role:any;
+  projectId: any; 
 
   constructor(private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router,) { }
+    private router: Router,
+    private route: ActivatedRoute 
+    ) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -26,6 +31,12 @@ export class JmxComponent {
       testDuration: ['', [Validators.required, Validators.min(1)]],
       rampUpTime: ['', [Validators.required, Validators.min(1)]],
       testType: ['']
+    });
+    this.route.params.subscribe((params) => {
+      this.projectId = params['projectId'];
+      console.log(this.projectId)
+      // Fetch project data based on this.projectId and populate the form fields
+      // Example: this.getProjectData(this.projectId);
     });
 this.role=localStorage.getItem('role');
 console.log(this.role)

@@ -32,7 +32,8 @@ export class LoginComponent {
       this.authService.login(dataparams).subscribe(response => {
            if(response.status==true){
             this.token.setToken(response.data.token);
-            localStorage.setItem('role',response.data.user.role)
+            localStorage.setItem('role',response.data.user.role);
+            localStorage.setItem('loginDetails',response.data.user)
             this.router.navigate(['/home']);
            }
         // Redirect or show messages as needed
