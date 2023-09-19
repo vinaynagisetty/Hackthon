@@ -1,6 +1,9 @@
 import { ImplicitReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-createform',
@@ -10,7 +13,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CreateformComponent implements OnInit   {
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router,) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -19,7 +24,7 @@ export class CreateformComponent implements OnInit   {
       numUsers: ['', [Validators.required, Validators.min(1)]],
       testDuration: ['', [Validators.required, Validators.min(1)]],
       rampUpTime: ['', [Validators.required, Validators.min(1)]],
-      testType: ['', Validators.required]
+      testType: ['']
     });
   }
   // create(){
@@ -33,8 +38,22 @@ export class CreateformComponent implements OnInit   {
   //     // Form is not valid, display error messages or take appropriate action
   //   }
   // }
-  create() {
+  create(details:any) {
     if (this.form.valid) {
+      let dataparams={
+        Project_name:details.projectname,
+        ramp_up_time:details.rampUpTime,
+        project_url:details.url,
+        number_of_users:details.numUsers,
+        test_duration:details.testDuration
+      }
+      this.authService.createProject(dataparams).subscribe(response =>{
+      console.log(response);
+      })
+      this.router.navigate(['/projects']);
+    
+
+      // this.As.signUp(user).subscribe(response => {
       // Convert form data to JMX XML string
       const jmxContent = this.convertToJMX(this.form.value);
   

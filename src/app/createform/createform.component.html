@@ -1,7 +1,7 @@
 <div class="bg-img">
     <div class="content">
         <header>Add Project</header>
-        <form [formGroup]="form" (ngSubmit)="create()">
+        <form [formGroup]="form" (ngSubmit)="create(form.value)">
             
             
             <!-- New fields with the same styling -->
@@ -19,11 +19,11 @@
             </div>
             <div class="field space">
                 <span class="fa fa-clock"></span>
-                <input type="number" formControlName="testDuration" required placeholder="Test Duration">
+                <input type="number" formControlName="testDuration" required placeholder="Test Duration(seconds)">
             </div>
             <div class="field space">
                 <span class="fa fa-clock"></span>
-                <input type="number" formControlName="rampUpTime" required placeholder="Ramp-Up Time">
+                <input type="number" formControlName="rampUpTime" required placeholder="Ramp-Up Time(seconds)">
             </div>
             <div class="field space">
                 <span class="fa fa-cog"></span>
