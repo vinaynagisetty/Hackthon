@@ -9,6 +9,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ResultsComponent } from './results/results.component';
 import { CreateformComponent } from './createform/createform.component';
 import { AuthGuard } from './isauthenticate.guard';
+import { JmxComponent } from './jmx/jmx.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'projects', component:ProjectsComponent } ,
   { path: 'results', component:ResultsComponent } ,
   { path: 'create', component:CreateformComponent } ,
+  { path: 'jmx', component:JmxComponent } ,
 
 ];
 

@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
-.add-project {
-    display: flex;
-    align-items: center;
-}
+
 .add-button {
     background-color: #007bff;
     color: #fff;

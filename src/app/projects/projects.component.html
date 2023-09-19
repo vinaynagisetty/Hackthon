@@ -10,9 +10,18 @@
 <div class="container">
     <div class="add-project">
         <!-- Font Awesome icon for plus sign -->
-        <div class="icon">
-            <i class="fas fa-plus"></i>
-        </div>
+        
         <!-- Button for adding a project -->
         <button routerLink="/create" class="add-button">Add Project</button>
+        <div>
+        <ol>
+          <ul *ngFor="let project of Projecrlist">
+            <li>
+                <span class="project-name">{{project.Project_name}}</span>
+                <button  routerLink="/jmx" *ngIf="role"  class="jmx-button">JMX</button>
+            </li>
+            
+        </ul>
+        </ol>
+      </div>
     </div>

@@ -27,6 +27,13 @@ export class AuthService {
     });
     return this.http.post(`${this.baseUrl}/create/project`, create,{headers});
   }
+  projectList(): Observable<any> {
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.authToken}`,
+    });
+    return this.http.post(`${this.baseUrl}/user/projectlist`,null,{headers});
+  }
   login(credentials: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/account/login`, credentials
 );

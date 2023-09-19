@@ -4,6 +4,7 @@ import { AuthService } from '../auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TokenService } from '../token.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,14 +15,15 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, 
     private authService: AuthService,
-    private router: Router,
-    private token:TokenService) {
+    private token:TokenService,
+    private router: Router) {
     this.form = this.fb.group({
       email: '',
       password: ''
     });
   }
 
+  
   login(credentials:any): void {
     let dataparams={
       username:credentials.email,
@@ -29,7 +31,8 @@ export class LoginComponent {
     }
       this.authService.login(dataparams).subscribe(response => {
            if(response.status==true){
-            this.token.setToken(response.data.token)
+            this.token.setToken(response.data.token);
+            localStorage.setItem('role',response.data.user.role)
             this.router.navigate(['/home']);
            }
         // Redirect or show messages as needed

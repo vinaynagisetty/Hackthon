@@ -18,6 +18,7 @@ import { ToastModule } from 'primeng/toast';
 import { ProjectsComponent } from './projects/projects.component';
 import { ResultsComponent } from './results/results.component';
 import { CreateformComponent } from './createform/createform.component';
+import { JmxComponent } from './jmx/jmx.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { CreateformComponent } from './createform/createform.component';
     ForgotPasswordComponent,
     ProjectsComponent,
     ResultsComponent,
-    CreateformComponent
+    CreateformComponent,
+    JmxComponent
   ],
   imports: [
     BrowserModule,

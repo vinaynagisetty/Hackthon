@@ -6,11 +6,11 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-createform',
-  templateUrl: './createform.component.html',
-  styleUrls: ['./createform.component.css']
+  selector: 'app-jmx',
+  templateUrl: './jmx.component.html',
+  styleUrls: ['./jmx.component.css']
 })
-export class CreateformComponent implements OnInit   {
+export class JmxComponent {
   form!: FormGroup;
   role:any;
 
@@ -43,17 +43,7 @@ console.log(this.role)
   // }
   create(details:any) {
     if (this.form.valid) {
-      let dataparams={
-        Project_name:details.projectname,
-        ramp_up_time:details.rampUpTime,
-        project_url:details.url,
-        number_of_users:details.numUsers,
-        test_duration:details.testDuration
-      }
-      this.authService.createProject(dataparams).subscribe(response =>{
-      console.log(response);
-      })
-      this.router.navigate(['/projects']);
+      
     
 
       // this.As.signUp(user).subscribe(response => {
@@ -256,6 +246,6 @@ convertToJMX(formData: any): string {
 
 
 
-  
+
 
 }
