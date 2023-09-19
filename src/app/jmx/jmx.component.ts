@@ -1,57 +1,75 @@
-import { ImplicitReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-
-import { ActivatedRoute, Router } from '@angular/router'; // Import ActivatedRoute
-
-
 
 @Component({
   selector: 'app-jmx',
   templateUrl: './jmx.component.html',
   styleUrls: ['./jmx.component.css']
 })
-export class JmxComponent {
+export class JmxComponent implements OnInit {
   form!: FormGroup;
-  role:any;
-  projectId: any; 
+  role: any;
+  projectId: any;
+  jmx: any;
 
-  constructor(private fb: FormBuilder,
+  constructor(
+    private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute 
-    ) { }
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      projectname:['',Validators.required],
+      projectname: ['', Validators.required],
       url: ['', Validators.required],
       numUsers: ['', [Validators.required, Validators.min(1)]],
       testDuration: ['', [Validators.required, Validators.min(1)]],
       rampUpTime: ['', [Validators.required, Validators.min(1)]],
       testType: ['']
     });
+
     this.route.params.subscribe((params) => {
       this.projectId = params['projectId'];
-      console.log(this.projectId)
-      // Fetch project data based on this.projectId and populate the form fields
-      // Example: this.getProjectData(this.projectId);
-    });
-this.role=localStorage.getItem('role');
-console.log(this.role)
-  }
-  // create(){
-  //   if (this.form.valid) {
-  //     // You can access form values using this.form.value
-  //     const formData = this.form.value;
-  //     console.log('Form Data:', formData);
+      console.log(this.projectId);
 
-  //     // Add your logic to start the password reset test here
-  //   } else {
-  //     // Form is not valid, display error messages or take appropriate action
-  //   }
-  // }
+      // Load JMX data for the specified projectId
+      this.loadJmxData(this.projectId);
+    });
+
+    this.role = localStorage.getItem('role');
+    console.log(this.role);
+  }
+
+  loadJmxData(projectId: any) {
+    let dataparams = {
+      project_id: projectId
+    };
+
+    this.authService.jmxData(dataparams).subscribe((response) => {
+      this.jmx= response.data;
+      console.log(this.jmx);
+
+      // After loading data, patch the form fields
+      this.patchFormWithJmxData(this.jmx);
+    });
+  }
+
+  patchFormWithJmxData(jmx:any) {
+    console.log(jmx[0])
+    
+      this.form.patchValue({
+        projectname: jmx[0].Project_name,
+        url: jmx[0].Project_url ,
+        numUsers: jmx[0].number_of_users,
+        testDuration: jmx[0].test_duration,
+        rampUpTime: jmx[0].ramp_up_time,
+        testType: jmx[0].test_type
+      });
+  
+  }
   create(details:any) {
     if (this.form.valid) {
       
@@ -250,6 +268,7 @@ convertToJMX(formData: any): string {
       </hashTree>
     </hashTree>
   </jmeterTestPlan>
+  
   `;
 
   return jmxXML;
