@@ -12,6 +12,7 @@ import {confirmPasswordValidator} from '.././comparepassword'
 })
 export class SignupComponent implements OnInit {
   public form!: UntypedFormGroup;
+  public isSubmit=false;
   private emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   public defaultEmailDomain: string = ''; 
   private password=/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
@@ -58,6 +59,7 @@ export class SignupComponent implements OnInit {
     }
   }
   signUp(user: any): void {
+    this.isSubmit=true;
     console.log(user);
     console.log(this.form);
     let dataparams={
